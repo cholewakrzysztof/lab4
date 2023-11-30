@@ -25,7 +25,7 @@ public class SQLExecutor {
     public SQLExecutor() throws Exception {
         conn = connect();
     }
-    public void createNewDatabase(String fileName) {
+    public static void createNewDatabase(String fileName) {
         String url = urlPath + fileName;
 
         try (Connection conn = DriverManager.getConnection(url)) {
@@ -39,7 +39,7 @@ public class SQLExecutor {
             System.out.println(e.getMessage());
         }
     }
-    public void createNewTable() {
+    public static void createNewTable() {
         String url = urlPath+"database.db";
 
         String sql = "CREATE TABLE IF NOT EXISTS decision (\n" +
@@ -51,10 +51,16 @@ public class SQLExecutor {
                 "	description text \n" +
                 ");";
 
-        try (Statement stmt = conn.createStatement()) {
-            stmt.execute(sql);
+        try (Connection conn = SQLExecutor.connect()) {
+            try (Statement stmt = conn.createStatement()) {
+                stmt.execute(sql);
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
     public boolean executeSQL(String sql){

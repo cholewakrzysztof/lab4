@@ -5,7 +5,8 @@ public class Main {
             javax.swing.SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
                     try {
-                        BackGate backGateToTrainings = new BackGate("trainings");
+                        SQLExecutor.createNewDatabase("base");
+                        //BackGate backGateToTrainings = new BackGate("trainings");
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
