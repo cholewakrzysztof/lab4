@@ -35,7 +35,7 @@ public class BackGate {
             }
             case INSERT -> {
                 HashMap<String,String> params = req.getParams();
-                sql = sqlBuilder.buildInsert(MyDate.getDate(params.get("date")),params.get("component"),params.get("person"),Integer.parseInt(params.get("priority")),params.get("description"));
+                sql = sqlBuilder.buildInsert(params);
                 respond.setOperation(sqlExecutor.executeSQL(sql) ? Operation.INSERT : Operation.ERROR);
             }
             default -> throw new Exception("Not implemented");

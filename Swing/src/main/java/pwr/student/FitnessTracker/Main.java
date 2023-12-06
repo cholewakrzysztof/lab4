@@ -6,7 +6,6 @@ public class Main {
                 public void run() {
                     try {
                         SQLExecutor.createNewDatabase("base");
-                        //BackGate backGateToTrainings = new BackGate("trainings");
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }

@@ -1,6 +1,8 @@
 package pwr.student.FitnessTracker;
 
 import java.sql.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SQLExecutor {
     private static final String urlPath = "jdbc:sqlite:.\\db\\";
@@ -39,18 +41,8 @@ public class SQLExecutor {
             System.out.println(e.getMessage());
         }
     }
-    public static void createNewTable() {
+    public static void createNewTable(String sql) {
         String url = urlPath+"database.db";
-
-        String sql = "CREATE TABLE IF NOT EXISTS decision (\n" +
-                "	id integer PRIMARY KEY,\n" +
-                "	date date NOT NULL,\n" +
-                "	component text,\n" +
-                "	person text text,\n" +
-                "	priority integer, \n" +
-                "	description text \n" +
-                ");";
-
         try (Connection conn = SQLExecutor.connect()) {
             try (Statement stmt = conn.createStatement()) {
                 stmt.execute(sql);
@@ -85,5 +77,52 @@ public class SQLExecutor {
     }
     public void close() throws SQLException {
         this.conn.close();
+    }
+    public static void main(String[] args) throws Exception {
+        //SQLExecutor.createNewDatabase("database.db");
+        String sql = "CREATE TABLE IF NOT EXISTS exercisestypes (\n" +
+                "	id integer PRIMARY KEY,\n" +
+                "	name text\n" +
+                ");";
+        //SQLExecutor sqlExecutor = new SQLExecutor();
+        SQLExecutor.createNewTable(sql);
+        sql = "CREATE TABLE IF NOT EXISTS exercises (\n" +
+                "	id integer PRIMARY KEY,\n" +
+                "	repeats integer NOT NULL,\n" +
+                "	load integer,\n" +
+                "	exercisetypeid integer,\n" +
+                "	trainingid integer \n" +
+                ");";
+        SQLExecutor.createNewTable(sql);
+        sql = "CREATE TABLE IF NOT EXISTS bodyparts (\n" +
+                "	id integer PRIMARY KEY,\n" +
+                "	name text\n" +
+                ");";
+        SQLExecutor.createNewTable(sql);
+        sql = "CREATE TABLE IF NOT EXISTS trainings (\n" +
+                "	id integer PRIMARY KEY,\n" +
+                "	bodypartid integer,\n" +
+                "	sessionid integer\n" +
+                ");";
+        SQLExecutor.createNewTable(sql);
+        sql = "CREATE TABLE IF NOT EXISTS sessions (\n" +
+                "	id integer PRIMARY KEY,\n" +
+                "	date date,\n" +
+                "	time time\n" +
+                ");";
+        SQLExecutor.createNewTable(sql);
+        SQLExecutor sqlExecutor = new SQLExecutor();
+        SQLBuilder sqlBuilder = new SQLBuilder();
+        sqlBuilder.choseTable("bodyparts");
+        Map<String,String> mapInsert = new HashMap<>();
+        mapInsert.put("name","legs");
+        sqlExecutor.executeSQL(sqlBuilder.buildInsert(mapInsert));
+        String[] col = new String[]{"*"};
+        ResultSet rs =sqlExecutor.select(sqlBuilder.buildSelect(col));
+
+        while (rs.next()){
+            System.out.println(rs.getInt("id"));
+            System.out.println(rs.getString("name"));
+        }
     }
 }

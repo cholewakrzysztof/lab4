@@ -4,16 +4,25 @@ import java.util.Map;
 
 public class SQLBuilder {
     private String table;
-    public String buildInsert(Date date, String component, String person, Integer priority, String description) {
-        return "INSERT INTO "
-                +this.table
-                +"(date,component,person,priority,description)"
-                +" VALUES('"
-                +MyDate.getRepresentation(date)+"','"
-                +component+"','"
-                +person+"',"
-                +priority+",'"
-                +description+"')";
+    public String buildInsert(Map<String,String> values) {
+        String sql =  "INSERT INTO " +this.table+" (";
+        for (String key : values.keySet()) {
+            sql += key+",";
+        }
+        sql = sql.substring(0,sql.lastIndexOf(','))+") VALUES(";
+        for (String key : values.keySet()) {
+            sql += getProperString(key,values.get(key))+",";
+        }
+        sql = sql.substring(0,sql.lastIndexOf(','))+");";
+        return sql;
+    }
+    public String getProperString(String key, String value){
+        switch (key){
+            case "name" : return "'"+value+"'";
+            case "repeats","load","sessionid","exercisetypeid","trainingid","bodypartid","date","time": return value;
+
+        }
+        return "";
     }
     public String buildSelect(String[] columns){
         StringBuilder sql = new StringBuilder("SELECT ");
