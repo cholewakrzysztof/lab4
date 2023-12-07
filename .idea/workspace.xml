@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35c56949-d99b-468e-94ec-7c976abb942e" name="Changes" comment="Add creating new base">
+    <list default="true" id="35c56949-d99b-468e-94ec-7c976abb942e" name="Changes" comment="Create database with tables&#10;Change SQLBuilder buildInsert to flexible map&#10;Add test main to SQLBuilder">
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/MyTime.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/CustomJPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/BackGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/BackGate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/SQLBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/SQLBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/SQLExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/SQLExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.java" afterDir="false" />
     </list>
@@ -45,6 +44,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "233",
     "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
     "ignore.virus.scanning.warn.message": "true",
     "jdk.selected.JAVA_MODULE": "17",
     "last_opened_file_path": "D:/JAVA/lab3",
@@ -90,7 +90,8 @@
       <workItem from="1701344909337" duration="3499000" />
       <workItem from="1701677181874" duration="2525000" />
       <workItem from="1701865653294" duration="3954000" />
-      <workItem from="1701893263243" duration="4204000" />
+      <workItem from="1701893263243" duration="4317000" />
+      <workItem from="1701947670902" duration="5010000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -108,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701347932700</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Create database with tables&#10;Change SQLBuilder buildInsert to flexible map&#10;Add test main to SQLBuilder">
+      <option name="closed" value="true" />
+      <created>1701900643973</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701900643973</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +126,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit" />
     <MESSAGE value="Add creating new base" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add creating new base" />
+    <MESSAGE value="Create database with tables&#10;Change SQLBuilder buildInsert to flexible map&#10;Add test main to SQLBuilder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create database with tables&#10;Change SQLBuilder buildInsert to flexible map&#10;Add test main to SQLBuilder" />
   </component>
 </project>

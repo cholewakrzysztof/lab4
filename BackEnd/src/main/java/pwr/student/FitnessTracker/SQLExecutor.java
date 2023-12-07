@@ -1,6 +1,7 @@
 package pwr.student.FitnessTracker;
 
 import java.sql.*;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -79,12 +80,80 @@ public class SQLExecutor {
         this.conn.close();
     }
     public static void main(String[] args) throws Exception {
-        //SQLExecutor.createNewDatabase("database.db");
+        SQLExecutor sqlExecutor = new SQLExecutor();
+        SQLBuilder sqlBuilder = new SQLBuilder();
+        Map<String,String> mapInsert = new HashMap<>();
+        String sql;
+
+        //tmpBaseBuild();
+        //tmpInserts(sqlExecutor,sqlBuilder);
+        String[] col = new String[]{"*"};
+
+        //select all from bodyparts
+        sqlBuilder.choseTable("bodyparts");
+        mapInsert.put("id","0");
+        mapInsert.put("name","arms");
+        ResultSet rs =sqlExecutor.select(sqlBuilder.buildSelect(col));
+        tmpPrinter(mapInsert, rs);
+
+
+        //select all from exercisestypes
+        sqlBuilder.choseTable("exercisestypes");
+        mapInsert.put("id","0");
+        mapInsert.put("name","pushup");
+        rs =sqlExecutor.select(sqlBuilder.buildSelect(col));
+        tmpPrinter(mapInsert, rs);
+
+
+        //select all from exercises
+        sqlBuilder.choseTable("exercises");
+        mapInsert.put("exercisetypeid","2");
+        mapInsert.put("id","0");
+        mapInsert.put("trainingid","1");
+        mapInsert.put("repeats","10");
+        mapInsert.put("load","15");
+        rs =sqlExecutor.select(sqlBuilder.buildSelect(col));
+        tmpPrinter(mapInsert, rs);
+
+
+        //select all from sessions
+        sqlBuilder.choseTable("sessions");
+        mapInsert.put("date",MyDate.getRepresentation(new Date(0)));
+        mapInsert.put("id","0");
+        mapInsert.put("time",MyTime.getRepresentation(new Date(0)));
+        rs =sqlExecutor.select(sqlBuilder.buildSelect(col));
+        tmpPrinter(mapInsert, rs);
+
+
+        //select all from trainings
+        sqlBuilder.choseTable("trainings");
+        mapInsert.put("bodypartid","2");
+        mapInsert.put("id","0");
+        mapInsert.put("sessionid","1");
+        rs =sqlExecutor.select(sqlBuilder.buildSelect(col));
+        tmpPrinter(mapInsert, rs);
+    }
+
+    private static void tmpPrinter(Map<String, String> mapInsert, ResultSet rs) throws SQLException {
+        while (rs.next()) {
+            String toprint = "";
+            for (String s : mapInsert.keySet()) {
+                if (s.contains("id"))
+                    toprint += s + ": " + rs.getInt(s)+" ";
+                else
+                    toprint += s + ": " + rs.getString(s)+" ";
+            }
+            System.out.println(toprint);
+        }
+        mapInsert.clear();
+    }
+
+    private static void tmpBaseBuild(){
+        SQLExecutor.createNewDatabase("database.db");
         String sql = "CREATE TABLE IF NOT EXISTS exercisestypes (\n" +
                 "	id integer PRIMARY KEY,\n" +
-                "	name text\n" +
+                "	name text UNIQUE\n" +
                 ");";
-        //SQLExecutor sqlExecutor = new SQLExecutor();
         SQLExecutor.createNewTable(sql);
         sql = "CREATE TABLE IF NOT EXISTS exercises (\n" +
                 "	id integer PRIMARY KEY,\n" +
@@ -96,7 +165,7 @@ public class SQLExecutor {
         SQLExecutor.createNewTable(sql);
         sql = "CREATE TABLE IF NOT EXISTS bodyparts (\n" +
                 "	id integer PRIMARY KEY,\n" +
-                "	name text\n" +
+                "	name text UNIQUE\n" +
                 ");";
         SQLExecutor.createNewTable(sql);
         sql = "CREATE TABLE IF NOT EXISTS trainings (\n" +
@@ -111,18 +180,40 @@ public class SQLExecutor {
                 "	time time\n" +
                 ");";
         SQLExecutor.createNewTable(sql);
-        SQLExecutor sqlExecutor = new SQLExecutor();
-        SQLBuilder sqlBuilder = new SQLBuilder();
-        sqlBuilder.choseTable("bodyparts");
-        Map<String,String> mapInsert = new HashMap<>();
-        mapInsert.put("name","legs");
-        sqlExecutor.executeSQL(sqlBuilder.buildInsert(mapInsert));
-        String[] col = new String[]{"*"};
-        ResultSet rs =sqlExecutor.select(sqlBuilder.buildSelect(col));
+    }
 
-        while (rs.next()){
-            System.out.println(rs.getInt("id"));
-            System.out.println(rs.getString("name"));
-        }
+    private static void tmpInserts(SQLExecutor sqlExecutor,SQLBuilder sqlBuilder){
+        Map<String,String> mapInsert = new HashMap<>();
+        String sql;
+        //insert to bodypatrs
+        sqlBuilder.choseTable("bodyparts");
+        mapInsert.put("name","arms");
+        sqlExecutor.executeSQL(sqlBuilder.buildInsert(mapInsert));
+
+        //insert to exercisestypes
+        sqlBuilder.choseTable("exercisestypes");
+        mapInsert.put("name","pushup");
+        sqlExecutor.executeSQL(sqlBuilder.buildInsert(mapInsert));
+
+        //insert to exercises
+        sqlBuilder.choseTable("exercises");
+        mapInsert.put("exercisetypeid","2");
+        mapInsert.put("trainingid","1");
+        mapInsert.put("repeats","10");
+        mapInsert.put("load","15");
+        sqlExecutor.executeSQL(sqlBuilder.buildInsert(mapInsert));
+
+        //insert to trainings
+        sqlBuilder.choseTable("trainings");
+        mapInsert.put("bodypartid","2");
+        mapInsert.put("sessionid","1");
+        sqlExecutor.executeSQL(sqlBuilder.buildInsert(mapInsert));
+
+        //insert to sessions
+        sqlBuilder.choseTable("sessions");
+        mapInsert.put("date",MyDate.getRepresentation(new Date(0)));
+        mapInsert.put("time",MyTime.getRepresentation(new Date(0)));
+        sql = sqlBuilder.buildInsert(mapInsert);
+        sqlExecutor.executeSQL(sql);
     }
 }

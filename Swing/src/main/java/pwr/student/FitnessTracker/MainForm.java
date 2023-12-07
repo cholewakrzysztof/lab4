@@ -1,5 +1,6 @@
 package pwr.student.FitnessTracker;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -11,6 +12,10 @@ public class MainForm extends JFrame{
     private JPanel JPanelMain;
     private JLabel JLabelTitle;
     private JTabbedPane JPanelAppCards;
+    private JPanel TrainingsPanel;
+    private JPanel SessionsPanel;
+    private JPanel ExercisesPanel;
+    private JPanel CustomTablePanel;
     private JList list1;
     private Integer counter =0;
 
@@ -34,5 +39,10 @@ public class MainForm extends JFrame{
     public void run() {
         pack();
         setVisible(true);
+    }
+
+    private void createUIComponents() {
+        CustomTablePanel = new CustomJPanel();
+        // TODO: place custom component creation code here
     }
 }

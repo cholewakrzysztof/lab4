@@ -18,8 +18,8 @@ public class SQLBuilder {
     }
     public String getProperString(String key, String value){
         switch (key){
-            case "name" : return "'"+value+"'";
-            case "repeats","load","sessionid","exercisetypeid","trainingid","bodypartid","date","time": return value;
+            case "name","date","time" : return "'"+value+"'";
+            case "repeats","load","sessionid","exercisetypeid","trainingid","bodypartid": return value;
 
         }
         return "";
