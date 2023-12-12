@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="pwr.student.FitnessTracker.MainForm">
   <grid id="27dc6" binding="JPanelMain" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="20" width="435" height="315"/>
+      <xy x="20" y="20" width="435" height="366"/>
     </constraints>
     <properties/>
     <border type="none" title="Fitness Tracker "/>
@@ -29,7 +29,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <tabbedpane id="c5394" binding="JPanelAppCards">
+          <tabbedpane id="c5394" binding="JPanel">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
                 <preferred-size width="200" height="200"/>
@@ -38,16 +38,37 @@
             <properties/>
             <border type="none"/>
             <children>
-              <grid id="c61c6" binding="TrainingsPanel" custom-create="true" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="c61c6" binding="TrainingsPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <tabbedpane title="Trainings"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
-                <children/>
+                <children>
+                  <nested-form id="52eb0" form-file="pwr/student/FitnessTracker/TrainingsPanel.form">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </nested-form>
+                </children>
               </grid>
-              <grid id="c7a44" binding="SessionsPanel" custom-create="true" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="870a6" binding="JPanelListBody" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+                <margin top="0" left="0" bottom="0" right="0"/>
+                <constraints>
+                  <tabbedpane title="Body Parts List"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <nested-form id="bfcc3" form-file="pwr/student/FitnessTracker/BodyPartTypesPanel.form">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </nested-form>
+                </children>
+              </grid>
+              <grid id="c7a44" binding="SessionsPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <tabbedpane title="Sessions"/>
@@ -56,7 +77,7 @@
                 <border type="none"/>
                 <children/>
               </grid>
-              <grid id="adb96" binding="ExercisesPanel" custom-create="true" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="adb96" binding="ExercisesPanel" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
                   <tabbedpane title="Exercises"/>
@@ -65,33 +86,41 @@
                 <border type="none"/>
                 <children/>
               </grid>
-              <grid id="870a6" binding="CustomTablePanel" custom-create="true" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+              <grid id="6a7c4" binding="JPanelListExercises" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
                 <margin top="0" left="0" bottom="0" right="0"/>
                 <constraints>
-                  <tabbedpane title="Untitled"/>
+                  <tabbedpane title="Excersises Type List"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
-                <children/>
+                <children>
+                  <nested-form id="145eb" form-file="pwr/student/FitnessTracker/ExerciseTypesPanel.form">
+                    <constraints>
+                      <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                    </constraints>
+                  </nested-form>
+                </children>
               </grid>
             </children>
           </tabbedpane>
         </children>
       </grid>
-      <grid id="91a9d" binding="JPanelBottom" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="91a9d" binding="JPanelBottom" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints border-constraint="South"/>
         <properties/>
         <border type="none"/>
         <children>
-          <component id="35254" class="javax.swing.JButton" binding="ButtonExecute">
+          <nested-form id="94048" form-file="pwr/student/FitnessTracker/FooterPanel.form">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
-            <properties>
-              <text value="Button"/>
-            </properties>
-          </component>
+          </nested-form>
+          <hspacer id="1a650">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
         </children>
       </grid>
     </children>

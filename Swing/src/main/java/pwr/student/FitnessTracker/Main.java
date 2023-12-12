@@ -9,8 +9,7 @@ public class Main {
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
-                    MainForm mainForm = new MainForm();
-                    mainForm.run();
+                    MainForm.start();
                 }
             });
         }
