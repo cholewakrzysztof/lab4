@@ -4,23 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35c56949-d99b-468e-94ec-7c976abb942e" name="Changes" comment="Try to make own contentpane class">
-      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/RequestBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/BodyPartTypesPanel.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/BodyPartTypesPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExerciseTypesPanel.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExerciseTypesPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/FooterPanel.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/FooterPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/JListBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.java" afterDir="false" />
+    <list default="true" id="35c56949-d99b-468e-94ec-7c976abb942e" name="Changes" comment="Add panel forms&#10;Exercisetypes table managment fully work">
+      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExercisesPanel.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExercisesPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionsPanel.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionsPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/CustomJPanel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/BodyPartTypesPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/BodyPartTypesPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/BodyPartTypesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/BodyPartTypesPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExerciseTypesPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExerciseTypesPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExerciseTypesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExerciseTypesPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,9 +47,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "321",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "231",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "ignore.virus.scanning.warn.message": "true",
@@ -110,7 +106,8 @@
       <workItem from="1701947670902" duration="5137000" />
       <workItem from="1702294000048" duration="13446000" />
       <workItem from="1702382082926" duration="1595000" />
-      <workItem from="1702411176793" duration="7167000" />
+      <workItem from="1702411176793" duration="7438000" />
+      <workItem from="1702459413291" duration="7078000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -144,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701952739520</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add panel forms&#10;Exercisetypes table managment fully work">
+      <option name="closed" value="true" />
+      <created>1702418454466</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1702418454466</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +160,7 @@
     <MESSAGE value="Add creating new base" />
     <MESSAGE value="Create database with tables&#10;Change SQLBuilder buildInsert to flexible map&#10;Add test main to SQLBuilder" />
     <MESSAGE value="Try to make own contentpane class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Try to make own contentpane class" />
+    <MESSAGE value="Add panel forms&#10;Exercisetypes table managment fully work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add panel forms&#10;Exercisetypes table managment fully work" />
   </component>
 </project>

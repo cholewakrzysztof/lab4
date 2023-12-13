@@ -73,6 +73,7 @@ public class ExerciseTypesPanel extends JPanel {
 
     private void createUIComponents() throws Exception {
         gate = new BackGate("exercisestypes");
+        ExerciseTypes = new JList();
         updateList();
         this.add(ExerciseTypes);
     }
