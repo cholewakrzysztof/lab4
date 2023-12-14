@@ -1,5 +1,6 @@
 package pwr.student.FitnessTracker;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 public class SQLBuilder {
@@ -19,7 +20,7 @@ public class SQLBuilder {
     public String getProperString(String key, String value){
         switch (key){
             case "name","date","time" : return "'"+value+"'";
-            case "repeats","load","sessionid","exercisetypeid","trainingid","bodypartid": return value;
+            case "repeats","load","sessionid","exercisetypeid","trainingid","bodypartid","success","exerciseid": return value;
 
         }
         return "";
@@ -48,5 +49,17 @@ public class SQLBuilder {
 
     public void choseTable(String name){
         this.table = name;
+    }
+
+    public String buildUpdate(HashMap<String, String> params) {
+        StringBuilder sql = new StringBuilder("UPDATE ");
+        sql.append(params.get("table")).append(" SET ");
+        for (String key : params.keySet()){
+            if(key!="id" && key!="table")
+                sql.append(key).append(" = ").append(getProperString(key,params.get(key))).append(",");
+        }
+        sql = new StringBuilder(sql.substring(0, sql.length() -1));
+        sql.append(" WHERE id=").append(params.get("id"));
+        return sql.toString();
     }
 }

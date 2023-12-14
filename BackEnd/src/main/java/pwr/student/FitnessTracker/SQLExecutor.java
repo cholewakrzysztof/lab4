@@ -189,13 +189,13 @@ public class SQLExecutor {
                 "	date date,\n" +
                 "	time time\n" +
                 ");";
-        SQLExecutor.createNewTable(sql);
+        //SQLExecutor.createNewTable(sql);
 
         sql = "CREATE TABLE IF NOT EXISTS targets (\n" +
-                "	id integer PRIMARY KEY,\n" +
+                "   id integer PRIMARY KEY,\n" +
                 "   success integer,\n"+
                 "   exerciseid integer,\n"+
-                "	date date\n" +
+                "   date date\n" +
                 ");";
         SQLExecutor.createNewTable(sql);
     }
@@ -232,6 +232,7 @@ public class SQLExecutor {
 
         //insert to trainings
         sqlBuilder.choseTable("targets");
+        mapInsert.clear();
         mapInsert.put("date",MyDate.getRepresentation(new Date(0)));
         mapInsert.put("exerciseid","0");
         mapInsert.put("success","0");
@@ -239,6 +240,7 @@ public class SQLExecutor {
 
         //insert to sessions
         sqlBuilder.choseTable("sessions");
+        mapInsert.clear();
         mapInsert.put("date",MyDate.getRepresentation(new Date(0)));
         mapInsert.put("time",MyTime.getRepresentation(new Date(0)));
         sql = sqlBuilder.buildInsert(mapInsert);

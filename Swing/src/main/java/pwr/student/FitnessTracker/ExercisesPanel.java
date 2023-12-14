@@ -18,31 +18,14 @@ public class ExercisesPanel {
     private JTextField ExercisetypeIdTextField;
     private JTextField TrainingIdTextField;
     private JScrollPane ScrollPane;
+    private JButton ButttonUpdate;
 
     public ExercisesPanel() {
         ButtonDelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                HashMap<String,String> map =new HashMap<>();
-                System.out.println(ExercisesList.getSelectedIndex());
-                if(ExercisesList.getSelectedIndex()>-1){
-                    Pattern pattern = Pattern.compile("[0-9]+");
-                    String item = ExercisesList.getSelectedValue().toString();
-                    Matcher regex = pattern.matcher(item);
-                    if(regex.find()){
-                        String id = regex.group(0);
-                        map.put("start",id);
-                        map.put("end",id);
-                    }
-                    Request req = RequestBuilder.buildRequest(Operation.DELETE,new String[]{}, map);
-                    try {
-                        gate.receiveRequest(req);
-                    } catch (Exception ex) {
-                        throw new RuntimeException(ex);
-                    }
-                }
                 try {
-                    System.out.println("Update list!");
+                    Proxy.manageDelete(gate,ExercisesList.getSelectedValue().toString());
                     updateList();
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
@@ -78,6 +61,34 @@ public class ExercisesPanel {
                 try {
                     updateList();
                     System.out.println("Update list!");
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+        ButttonUpdate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Pattern pattern = Pattern.compile("[0-9]+", Pattern.CASE_INSENSITIVE);
+                    String repeats = RepeatTextField.getText();
+                    String load = RepeatTextField.getText();
+                    String exID = ExercisetypeIdTextField.getText();
+                    String trainingID = TrainingIdTextField.getText();
+                    Matcher matcher = pattern.matcher(repeats);
+                    Matcher matcher2 = pattern.matcher(load);
+                    Matcher matcher3 = pattern.matcher(exID);
+                    Matcher matcher4 = pattern.matcher(trainingID);
+                    if(matcher.find()&& matcher2.find()&&matcher3.find()&&matcher4.find()){
+                        HashMap<String,String> map = new HashMap<>();
+                        map.put("repeats",repeats);
+                        map.put("load",load);
+                        map.put("exercisetypeid",exID);
+                        map.put("trainingid",trainingID);
+                        map.put("table","exercises");
+                        Proxy.manageUpdate(gate,ExercisesList.getSelectedValue().toString(),map);
+                    }
+                    updateList();
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }

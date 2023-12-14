@@ -38,6 +38,11 @@ public class BackGate {
                 sql = sqlBuilder.buildInsert(params);
                 respond.setOperation(sqlExecutor.executeSQL(sql) ? Operation.INSERT : Operation.ERROR);
             }
+            case UPDATE -> {
+                HashMap<String,String> params = req.getParams();
+                sql = sqlBuilder.buildUpdate(params);
+                respond.setOperation(sqlExecutor.executeSQL(sql) ? Operation.UPDATE : Operation.ERROR);
+            }
             default -> throw new Exception("Not implemented");
         }
     }

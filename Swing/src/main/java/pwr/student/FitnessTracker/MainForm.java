@@ -13,6 +13,7 @@ public class MainForm extends JFrame{
     private JPanel ExercisesPanel;
     private JPanel JPanelListBody;
     private JPanel JPanelListExercises;
+    private JPanel TargetsPanel;
     private JList JListBodyPart;
 
 

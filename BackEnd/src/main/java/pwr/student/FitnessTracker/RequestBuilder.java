@@ -8,7 +8,6 @@ public class RequestBuilder {
         req.setOperation(operation);
         req.setColumns(columns);
         req.setParams(params);
-
         return req;
     }
 }

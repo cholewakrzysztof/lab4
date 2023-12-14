@@ -14,6 +14,7 @@ public class ExerciseTypesPanel extends JPanel {
     private JPanel Panel;
     private JList ExerciseTypes;
     private JTextField TextFieldName;
+    private JButton ButtonUpdate;
 
     public ExerciseTypesPanel() {
         Pattern pattern = Pattern.compile("[0-9]", Pattern.CASE_INSENSITIVE);
@@ -43,26 +44,26 @@ public class ExerciseTypesPanel extends JPanel {
         ButtonDelete.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                HashMap<String,String> map =new HashMap<>();
-                System.out.println(ExerciseTypes.getSelectedIndex());
-                if(ExerciseTypes.getSelectedIndex()>-1){
-                    Pattern pattern = Pattern.compile("[0-9]+");
-                    String item = ExerciseTypes.getSelectedValue().toString();
-                    Matcher regex = pattern.matcher(item);
-                    if(regex.find()){
-                        String id = regex.group(0);
-                        map.put("start",id);
-                        map.put("end",id);
-                    }
-                    Request req = RequestBuilder.buildRequest(Operation.DELETE,new String[]{}, map);
-                    try {
-                        gate.receiveRequest(req);
-                    } catch (Exception ex) {
-                        throw new RuntimeException(ex);
-                    }
-                }
                 try {
-                    System.out.println("Update list!");
+                    Proxy.manageDelete(gate,ExerciseTypes.getSelectedValue().toString());
+                    updateList();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+        ButtonUpdate.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    String input = TextFieldName.getText();
+                    Matcher matcher = pattern.matcher(input);
+                    if(!input.isEmpty() && !matcher.find()){
+                        HashMap<String,String> map = new HashMap<>();
+                        map.put("name",input);
+                        map.put("table","exercisestypes");
+                        Proxy.manageUpdate(gate,ExerciseTypes.getSelectedValue().toString(),map);
+                    }
                     updateList();
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
