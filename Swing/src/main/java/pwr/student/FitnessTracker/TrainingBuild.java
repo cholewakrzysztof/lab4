@@ -115,8 +115,7 @@ public class TrainingBuild extends JFrame {
         map.put("repeats","10");
         map.put("load","15");
         map.put("name","0");
-        map.put("sql","SELECT load,repeats,name,exercises.id FROM exercises JOIN exercisestypes ON exercises.exercisetypeid = exercisestypes.id");//
-        //gate.receiveRequest(RequestBuilder.buildRequest(Operation.SELECT,new String[]{"*"},map));
+        map.put("sql","SELECT load,repeats,name,exercises.id FROM exercises JOIN exercisestypes ON exercises.exercisetypeid = exercisestypes.id GROUP BY name,load,repeats");//
         Proxy.manageSpecialOperation(gateExercises,"",map);
         ExercisesList.setModel(JListBuilder.buildDFModel(map.keySet(),gateExercises.getRespond()));
         gateExercises.disconnect();

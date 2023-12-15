@@ -15,6 +15,7 @@ public class SessionsPanel extends RefreshablePanel{
     private JTextField DateTextField;
     private JScrollPane ScrollPane;
     private JButton ButtonUpdate;
+    private JButton BuildSession;
 
     public SessionsPanel() {
         ButtonDelete.addActionListener(new ActionListener() {
@@ -69,6 +70,21 @@ public class SessionsPanel extends RefreshablePanel{
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
+            }
+        });
+        BuildSession.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        try {
+                            SQLExecutor.createNewDatabase("base");
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+                        SessionBuild.start();
+                    }
+                });
             }
         });
     }
