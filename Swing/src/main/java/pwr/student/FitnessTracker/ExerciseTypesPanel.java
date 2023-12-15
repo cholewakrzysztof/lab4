@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ExerciseTypesPanel extends JPanel {
+public class ExerciseTypesPanel extends RefreshablePanel{
     BackGate gate;
     private JButton ButtonAdd;
     private JButton ButtonDelete;
@@ -76,9 +76,10 @@ public class ExerciseTypesPanel extends JPanel {
         gate = new BackGate("exercisestypes");
         ExerciseTypes = new JList();
         updateList();
-        this.add(ExerciseTypes);
+        Panel = new JPanel();
+        this.Panel.add(ExerciseTypes);
     }
-    private void updateList() throws Exception {
+    public void updateList() throws Exception {
         HashMap<String,String> map = new HashMap<>();
         map.put("id","0");
         map.put("name","0");

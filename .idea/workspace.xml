@@ -4,30 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35c56949-d99b-468e-94ec-7c976abb942e" name="Changes" comment="Trying to add target table">
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/InfoBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MyDateField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MyTimeField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/Proxy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TargetsPanel.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TargetsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="35c56949-d99b-468e-94ec-7c976abb942e" name="Changes" comment="Crud done">
+      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/RefreshablePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingBuild.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingBuild.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/BackGate.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/BackGate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/Operation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/RequestBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/RequestBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/SQLBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/SQLBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/SQLExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/SQLExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/BodyPartTypesPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/BodyPartTypesPanel.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/BodyPartTypesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/BodyPartTypesPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExerciseTypesPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExerciseTypesPanel.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExerciseTypesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExerciseTypesPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExercisesPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExercisesPanel.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExercisesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExercisesPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/JListBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/JListBuilder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionsPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionsPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/Proxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/Proxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TargetsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TargetsPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.java" afterDir="false" />
     </list>
@@ -39,6 +31,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -60,7 +53,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "211",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "233",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "ignore.virus.scanning.warn.message": "true",
@@ -121,7 +114,8 @@
       <workItem from="1702411176793" duration="7438000" />
       <workItem from="1702459413291" duration="9210000" />
       <workItem from="1702491497031" duration="2952000" />
-      <workItem from="1702542175055" duration="11613000" />
+      <workItem from="1702542175055" duration="11659000" />
+      <workItem from="1702595184719" duration="13684000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -179,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702474098845</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Crud done">
+      <option name="closed" value="true" />
+      <created>1702558009489</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1702558009489</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,7 +195,8 @@
     <MESSAGE value="Add panel forms&#10;Exercisetypes table managment fully work" />
     <MESSAGE value="Add and delete panels work" />
     <MESSAGE value="Trying to add target table" />
-    <option name="LAST_COMMIT_MESSAGE" value="Trying to add target table" />
+    <MESSAGE value="Crud done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Crud done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -220,7 +223,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/Proxy.java</url>
-          <line>21</line>
+          <line>22</line>
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -228,7 +231,72 @@
           <line>58</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/BackGate.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingBuild.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingBuild.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/SQLExecutor.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/JListBuilder.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/JListBuilder.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/JListBuilder.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/JListBuilder.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.java</url>
+          <line>104</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/JListBuilder.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/JListBuilder.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="75" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="org.sqlite.jdbc4.JDBC4Statement" memberName="rs" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>

@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 
-public class SessionsPanel {
+public class SessionsPanel extends RefreshablePanel{
     BackGate gate;
     private JPanel Panel;
     private JButton ButtonDelete;
@@ -82,7 +82,7 @@ public class SessionsPanel {
         updateList();
         this.ScrollPane.add(SessionList);
     }
-    private void updateList() throws Exception {
+    public void updateList() throws Exception {
         HashMap<String,String> map = new HashMap<>();
         map.put("id","0");
         map.put("date","1");

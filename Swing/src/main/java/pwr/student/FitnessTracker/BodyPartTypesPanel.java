@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class BodyPartTypesPanel extends JPanel{
+public class BodyPartTypesPanel extends RefreshablePanel{
     BackGate gate;
     private JButton ButtonAdd;
     private JButton ButtonDelete;
@@ -76,13 +76,15 @@ public class BodyPartTypesPanel extends JPanel{
         gate = new BackGate("bodyparts");
         BodyPartTypesList = new JList();
         updateList();
-        this.add(BodyPartTypesList);
+        Panel = new JPanel();
+        this.Panel.add(BodyPartTypesList);
     }
-    private void updateList() throws Exception {
+    public void updateList() throws Exception {
         HashMap<String,String> map = new HashMap<>();
         map.put("id","0");
         map.put("name","0");
         gate.receiveRequest(RequestBuilder.buildRequest(Operation.SELECT,new String[]{"*"},map));
         BodyPartTypesList.setModel(JListBuilder.buildDFModel(map.keySet(),gate.getRespond()));
+        gate.disconnect();
     }
 }

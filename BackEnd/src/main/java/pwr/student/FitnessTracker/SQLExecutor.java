@@ -7,8 +7,8 @@ import java.util.Map;
 
 public class SQLExecutor {
     private static final String urlPath = "jdbc:sqlite:.\\db\\";
-    private final Connection conn;
-    private static Connection connect() throws Exception {
+    private Connection conn;
+    public void connect() throws Exception {
         Connection conn;
         try {
             String url = urlPath+"database.db";
@@ -17,16 +17,15 @@ public class SQLExecutor {
             System.out.println("Connection to SQLite has been established.");
 
             if (conn != null)
-                return conn;
+                this.conn = conn;
             else
                 throw new Exception(urlPath);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        return null;
     }
     public SQLExecutor() throws Exception {
-        conn = connect();
+        connect();
     }
     public static void createNewDatabase(String fileName) {
         String url = urlPath + fileName;
@@ -42,9 +41,9 @@ public class SQLExecutor {
             System.out.println(e.getMessage());
         }
     }
-    public static void createNewTable(String sql) {
+    public void createNewTable(String sql) {
         String url = urlPath+"database.db";
-        try (Connection conn = SQLExecutor.connect()) {
+        try (Connection conn = this.conn) {
             try (Statement stmt = conn.createStatement()) {
                 stmt.execute(sql);
             } catch (SQLException e) {
@@ -158,13 +157,14 @@ public class SQLExecutor {
         mapInsert.clear();
     }
 
-    private static void tmpBaseBuild(){
+    private static void tmpBaseBuild() throws Exception {
+        SQLExecutor sqlExecutor = new SQLExecutor();
         SQLExecutor.createNewDatabase("database.db");
         String sql = "CREATE TABLE IF NOT EXISTS exercisestypes (\n" +
                 "	id integer PRIMARY KEY,\n" +
                 "	name text UNIQUE\n" +
                 ");";
-        SQLExecutor.createNewTable(sql);
+        sqlExecutor.createNewTable(sql);
         sql = "CREATE TABLE IF NOT EXISTS exercises (\n" +
                 "	id integer PRIMARY KEY,\n" +
                 "	repeats integer NOT NULL,\n" +
@@ -172,18 +172,18 @@ public class SQLExecutor {
                 "	exercisetypeid integer,\n" +
                 "	trainingid integer \n" +
                 ");";
-        SQLExecutor.createNewTable(sql);
+        sqlExecutor.createNewTable(sql);
         sql = "CREATE TABLE IF NOT EXISTS bodyparts (\n" +
                 "	id integer PRIMARY KEY,\n" +
                 "	name text UNIQUE\n" +
                 ");";
-        SQLExecutor.createNewTable(sql);
+        sqlExecutor.createNewTable(sql);
         sql = "CREATE TABLE IF NOT EXISTS trainings (\n" +
                 "	id integer PRIMARY KEY,\n" +
                 "	bodypartid integer,\n" +
                 "	sessionid integer\n" +
                 ");";
-        SQLExecutor.createNewTable(sql);
+        sqlExecutor.createNewTable(sql);
         sql = "CREATE TABLE IF NOT EXISTS sessions (\n" +
                 "	id integer PRIMARY KEY,\n" +
                 "	date date,\n" +
@@ -197,7 +197,7 @@ public class SQLExecutor {
                 "   exerciseid integer,\n"+
                 "   date date\n" +
                 ");";
-        SQLExecutor.createNewTable(sql);
+        sqlExecutor.createNewTable(sql);
     }
 
     private static void tmpInserts(SQLExecutor sqlExecutor,SQLBuilder sqlBuilder){

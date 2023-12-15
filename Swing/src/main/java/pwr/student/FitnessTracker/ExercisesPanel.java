@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ExercisesPanel {
+public class ExercisesPanel extends RefreshablePanel{
     BackGate gate;
     private JPanel Panel;
     private JList ExercisesList;
@@ -103,7 +103,7 @@ public class ExercisesPanel {
         updateList();
         this.ScrollPane.add(ExercisesList);
     }
-    private void updateList() throws Exception {
+    public void updateList() throws Exception {
         HashMap<String,String> map = new HashMap<>();
         map.put("exercisetypeid","2");
         map.put("id","0");

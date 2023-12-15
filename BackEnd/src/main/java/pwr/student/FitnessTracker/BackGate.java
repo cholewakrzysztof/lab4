@@ -1,5 +1,6 @@
 package pwr.student.FitnessTracker;
 
+import java.sql.SQLException;
 import java.util.HashMap;
 
 public class BackGate {
@@ -12,7 +13,14 @@ public class BackGate {
         this.sqlBuilder = new SQLBuilder();
         sqlBuilder.choseTable(table);
     }
+    public void connect() throws Exception {
+        sqlExecutor.connect();
+    }
+    public void disconnect() throws SQLException {
+        sqlExecutor.close();
+    }
     public void receiveRequest(Request req) throws Exception {
+        connect();
         respond = new Respond();
         respond.setColumns(req.getColumns());
         String sql;
@@ -42,6 +50,11 @@ public class BackGate {
                 HashMap<String,String> params = req.getParams();
                 sql = sqlBuilder.buildUpdate(params);
                 respond.setOperation(sqlExecutor.executeSQL(sql) ? Operation.UPDATE : Operation.ERROR);
+            }
+            case SPECIAL_OPERATION ->{
+                sql = req.getParams().get("sql");
+                respond.setResult(sqlExecutor.select(sql));
+                respond.setOperation(sqlExecutor.executeSQL(sql) ? Operation.SPECIAL_OPERATION : Operation.ERROR);
             }
             default -> throw new Exception("Not implemented");
         }

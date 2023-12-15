@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TargetsPanel {
+public class TargetsPanel extends RefreshablePanel{
     BackGate gate;
     private JPanel Panel;
     private JList TargetsList;
@@ -87,7 +87,7 @@ public class TargetsPanel {
             }
         });
     }
-    private void updateList() throws Exception {
+    public void updateList() throws Exception {
         HashMap<String,String> map = new HashMap<>();
         map.put("id","0");
         map.put("exerciseid","0");

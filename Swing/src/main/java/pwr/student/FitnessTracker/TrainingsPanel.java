@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TrainingsPanel {
+public class TrainingsPanel extends RefreshablePanel{
     BackGate gate;
     private JPanel Panel;
     private JButton ButtonAdd;
@@ -17,6 +17,7 @@ public class TrainingsPanel {
     private JScrollPane JScrollPaneList;
     private JButton ButtonDelete;
     private JButton ButtonUpdate;
+    private JButton BuildTrainingButton;
 
     public TrainingsPanel() {
         Pattern pattern = Pattern.compile("[0-9]", Pattern.CASE_INSENSITIVE);
@@ -78,9 +79,24 @@ public class TrainingsPanel {
                 }
             }
         });
+        BuildTrainingButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                javax.swing.SwingUtilities.invokeLater(new Runnable() {
+                    public void run() {
+                        try {
+                            SQLExecutor.createNewDatabase("base");
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
+                        TrainingBuild.start();
+                    }
+                });
+            }
+        });
     }
 
-    private void updateList() throws Exception {
+    public void updateList() throws Exception {
         HashMap<String,String> map = new HashMap<>();
         map.put("id","0");
         map.put("sessionid","0");

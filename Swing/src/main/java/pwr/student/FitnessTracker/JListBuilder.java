@@ -10,6 +10,8 @@ public class JListBuilder {
         while(respond.getResult().next()){
             StringBuilder toprint = new StringBuilder();
             for (String s : keys) {
+                if(s.equals("sql"))
+                    continue;
                 if (s.contains("id"))
                     toprint.append(s).append(": ").append(respond.getResult().getInt(s)).append(" ");
                 else
