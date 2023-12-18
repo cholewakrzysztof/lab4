@@ -5,7 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 
-public class SessionsPanel extends RefreshablePanel{
+public class SessionsPanel{
     BackGate gate;
     private JPanel Panel;
     private JButton ButtonDelete;
@@ -23,7 +23,7 @@ public class SessionsPanel extends RefreshablePanel{
             public void actionPerformed(ActionEvent e) {
                 try {
                     Proxy.manageDelete(gate,SessionList.getSelectedValue().toString());
-                    updateList();
+                    ((RefreshablePanel)Panel).updateList();
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
@@ -46,7 +46,7 @@ public class SessionsPanel extends RefreshablePanel{
                     }
                 }
                 try {
-                    updateList();
+                    ((RefreshablePanel)Panel).updateList();
                     System.out.println("Update list!");
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
@@ -66,7 +66,7 @@ public class SessionsPanel extends RefreshablePanel{
                         map.put("date", date);
                         Proxy.manageUpdate(gate,SessionList.getSelectedValue().toString(),map);
                     }
-                    updateList();
+                    ((RefreshablePanel)Panel).updateList();
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
@@ -82,7 +82,7 @@ public class SessionsPanel extends RefreshablePanel{
                         } catch (Exception e) {
                             throw new RuntimeException(e);
                         }
-                        SessionBuild.start();
+                        SessionBuild.start((RefreshablePanel)Panel);
                     }
                 });
             }
@@ -90,20 +90,25 @@ public class SessionsPanel extends RefreshablePanel{
     }
 
     private void createUIComponents() throws Exception {
+        Panel = new RefreshablePanel() {
+            @Override
+            public void updateList() throws Exception {
+                HashMap<String,String> map = new HashMap<>();
+                map.put("id","0");
+                map.put("date","1");
+                map.put("time","10");
+                gate.receiveRequest(RequestBuilder.buildRequest(Operation.SELECT,new String[]{"*"},map));
+                SessionList.setModel(JListBuilder.buildDFModel(map.keySet(),gate.getRespond()));
+            }
+        };
+
         ScrollPane = new JScrollPane();
         DateTextField = new MyDateField();
         TimeTextField = new MyTimeField();
         gate = new BackGate("sessions");
         SessionList = new JList();
-        updateList();
+        ((RefreshablePanel)Panel).updateList();
         this.ScrollPane.add(SessionList);
     }
-    public void updateList() throws Exception {
-        HashMap<String,String> map = new HashMap<>();
-        map.put("id","0");
-        map.put("date","1");
-        map.put("time","10");
-        gate.receiveRequest(RequestBuilder.buildRequest(Operation.SELECT,new String[]{"*"},map));
-        SessionList.setModel(JListBuilder.buildDFModel(map.keySet(),gate.getRespond()));
-    }
+
 }

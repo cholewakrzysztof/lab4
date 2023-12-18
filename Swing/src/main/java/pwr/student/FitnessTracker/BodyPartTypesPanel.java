@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class BodyPartTypesPanel extends RefreshablePanel{
+public class BodyPartTypesPanel extends JPanel{
     BackGate gate;
     private JButton ButtonAdd;
     private JButton ButtonDelete;
@@ -17,6 +17,12 @@ public class BodyPartTypesPanel extends RefreshablePanel{
     private JButton ButtonUpdate;
 
     public BodyPartTypesPanel() {
+        try {
+            gate = new BackGate("bodyparts");
+            ((RefreshablePanel)Panel).updateList();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
         Pattern pattern = Pattern.compile("[0-9]", Pattern.CASE_INSENSITIVE);
         ButtonAdd.addActionListener(new ActionListener() {
             @Override
@@ -34,7 +40,7 @@ public class BodyPartTypesPanel extends RefreshablePanel{
                     }
                 }
                 try {
-                    updateList();
+                    ((RefreshablePanel)Panel).updateList();
                     System.out.println("Update list!");
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
@@ -46,7 +52,7 @@ public class BodyPartTypesPanel extends RefreshablePanel{
             public void actionPerformed(ActionEvent e) {
                 try {
                     Proxy.manageDelete(gate,BodyPartTypesList.getSelectedValue().toString());
-                    updateList();
+                    ((RefreshablePanel)Panel).updateList();
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
@@ -64,7 +70,7 @@ public class BodyPartTypesPanel extends RefreshablePanel{
                         map.put("table","bodyparts");
                         Proxy.manageUpdate(gate,BodyPartTypesList.getSelectedValue().toString(),map);
                     }
-                    updateList();
+                    ((RefreshablePanel)Panel).updateList();
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
@@ -73,18 +79,16 @@ public class BodyPartTypesPanel extends RefreshablePanel{
     }
 
     private void createUIComponents() throws Exception {
-        gate = new BackGate("bodyparts");
-        BodyPartTypesList = new JList();
-        updateList();
-        Panel = new JPanel();
-        this.Panel.add(BodyPartTypesList);
-    }
-    public void updateList() throws Exception {
-        HashMap<String,String> map = new HashMap<>();
-        map.put("id","0");
-        map.put("name","0");
-        gate.receiveRequest(RequestBuilder.buildRequest(Operation.SELECT,new String[]{"*"},map));
-        BodyPartTypesList.setModel(JListBuilder.buildDFModel(map.keySet(),gate.getRespond()));
-        gate.disconnect();
+        this.Panel = new RefreshablePanel() {
+            @Override
+            public void updateList() throws Exception {
+                HashMap<String,String> map = new HashMap<>();
+                map.put("id","0");
+                map.put("name","0");
+                gate.receiveRequest(RequestBuilder.buildRequest(Operation.SELECT,new String[]{"*"},map));
+                BodyPartTypesList.setModel(JListBuilder.buildDFModel(map.keySet(),gate.getRespond()));
+                gate.disconnect();
+            }
+        };
     }
 }

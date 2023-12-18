@@ -15,6 +15,7 @@ public class ExerciseTypesPanel extends RefreshablePanel{
     private JList ExerciseTypes;
     private JTextField TextFieldName;
     private JButton ButtonUpdate;
+    private JScrollPane ScrollPane;
 
     public ExerciseTypesPanel() {
         Pattern pattern = Pattern.compile("[0-9]", Pattern.CASE_INSENSITIVE);
@@ -73,11 +74,22 @@ public class ExerciseTypesPanel extends RefreshablePanel{
     }
 
     private void createUIComponents() throws Exception {
+        Panel = new RefreshablePanel() {
+            @Override
+            public void updateList() throws Exception {
+                HashMap<String,String> map = new HashMap<>();
+                map.put("id","0");
+                map.put("name","0");
+                gate.receiveRequest(RequestBuilder.buildRequest(Operation.SELECT,new String[]{"*"},map));
+                ExerciseTypes.setModel(JListBuilder.buildDFModel(map.keySet(),gate.getRespond()));
+            }
+        };
+
         gate = new BackGate("exercisestypes");
         ExerciseTypes = new JList();
         updateList();
-        Panel = new JPanel();
-        this.Panel.add(ExerciseTypes);
+        ScrollPane = new JScrollPane();
+        this.ScrollPane.add(ExerciseTypes);
     }
     public void updateList() throws Exception {
         HashMap<String,String> map = new HashMap<>();

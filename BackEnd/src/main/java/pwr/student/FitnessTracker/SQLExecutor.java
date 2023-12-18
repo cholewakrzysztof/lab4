@@ -189,7 +189,7 @@ public class SQLExecutor {
                 "	date date,\n" +
                 "	time time\n" +
                 ");";
-        //SQLExecutor.createNewTable(sql);
+        sqlExecutor.createNewTable(sql);
 
         sql = "CREATE TABLE IF NOT EXISTS targets (\n" +
                 "   id integer PRIMARY KEY,\n" +

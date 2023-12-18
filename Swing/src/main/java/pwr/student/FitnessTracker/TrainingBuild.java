@@ -13,6 +13,7 @@ public class TrainingBuild extends JFrame {
     BackGate gateBodyParts;
     BackGate gateTrainings;
 
+    private RefreshablePanel panel;
     private JPanel Panel;
     private JList ExercisesList;
     private JScrollPane ScrollPane;
@@ -64,15 +65,17 @@ public class TrainingBuild extends JFrame {
                                 map.clear();
                                 map.put("repeats",Proxy.findPart(s.toString(),"repeats"));
                                 map.put("load",Proxy.findPart(s.toString(),"load"));
-                                map.put("exercisetypeid",Proxy.findPart(s.toString(),"id"));
+                                map.put("exercisetypeid",Proxy.findPart(s.toString(),"exercisetypeid"));
                                 map.put("trainingid",trainingId.toString());
                                 Request tmpReq = RequestBuilder.buildRequest(Operation.INSERT,new String[]{"repeats","load","exercisetypeid","trainingid"},map);
                                 try {
                                     gateExercises.receiveRequest(tmpReq);
+                                    gateExercises.disconnect();
                                 } catch (Exception ex) {
                                     throw new RuntimeException(ex);
                                 }
                             });
+                            panel.updateList();
                         } catch (Exception ex) {
                             throw new RuntimeException(ex);
                         }
@@ -83,9 +86,11 @@ public class TrainingBuild extends JFrame {
         });
     }
 
-    public static void start() {
+    public static void start(RefreshablePanel panel) {
         JFrame frame = new JFrame("TrainingBuild");
-        frame.setContentPane(new TrainingBuild().Panel);
+        TrainingBuild tb = new TrainingBuild();
+        frame.setContentPane(tb.Panel);
+        tb.panel = panel;
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
@@ -110,12 +115,13 @@ public class TrainingBuild extends JFrame {
         updateList();
 
     }
-    private void updateList() throws Exception {
+    public void updateList() throws Exception {
         HashMap<String,String> map = new HashMap<>();
         map.put("repeats","10");
         map.put("load","15");
         map.put("name","0");
-        map.put("sql","SELECT load,repeats,name,exercises.id FROM exercises JOIN exercisestypes ON exercises.exercisetypeid = exercisestypes.id GROUP BY name,load,repeats");//
+        map.put("exercisetypeid","0");
+        map.put("sql","SELECT load,repeats,name,exercises.id,exercisetypeid FROM exercises JOIN exercisestypes ON exercises.exercisetypeid = exercisestypes.id GROUP BY name,load,repeats");//
         Proxy.manageSpecialOperation(gateExercises,"",map);
         ExercisesList.setModel(JListBuilder.buildDFModel(map.keySet(),gateExercises.getRespond()));
         gateExercises.disconnect();

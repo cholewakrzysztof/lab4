@@ -5,6 +5,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Ref;
+import java.sql.ResultSet;
 import java.util.Arrays;
 import java.util.HashMap;
 
@@ -20,6 +22,7 @@ public class SessionBuild extends JFrame{
     private JScrollPane ScrollPaneSelected;
     private JScrollPane ScrollPaneList;
     private JPanel Panel;
+    private RefreshablePanel panel;
 
     public SessionBuild() {
         TrainingList.addListSelectionListener(new ListSelectionListener() {
@@ -59,14 +62,46 @@ public class SessionBuild extends JFrame{
                             gateSessions.disconnect();
                             Arrays.stream(selectedTrainingsModel.toArray()).forEach(s -> {
                                 map.clear();
-                                map.put("bodypartid", Proxy.findPart(s.toString(), "id"));
+                                String idTraining = Proxy.findPart(s.toString(), "id");
+                                System.out.println("Should add exercises related to"+idTraining);
+                                map.put("bodypartid", Proxy.findPart(s.toString(), "bodypartid"));
                                 map.put("sessionid", sessionId.toString());
                                 Request tmpReq = RequestBuilder.buildRequest(Operation.INSERT, new String[]{"sessionid", "bodypartid"}, map);
                                 try {
                                     gateTrainings.receiveRequest(tmpReq);
+                                    gateTrainings.disconnect();
+                                    gateSessions.disconnect();
+                                    //ADD exercises
+                                    BackGate tmpExerciseGate = new BackGate("sessions");
+                                    map.clear();
+                                    map.put("sql","SELECT * FROM exercises WHERE trainingid = "+idTraining);
+                                    Proxy.manageSpecialOperation(tmpExerciseGate,"",map);
+                                    ResultSet result = tmpExerciseGate.getRespond().getResult();
+
+                                    gateTrainings.disconnect();
+                                    gateSessions.disconnect();
+
+                                    while (result.next()){
+                                        BackGate tmpTmp = new BackGate("exercises");
+                                        map.clear();
+                                        map.put("repeats",result.getString("repeats"));
+                                        map.put("load",result.getString("load"));
+                                        map.put("exercisetypeid",result.getString("exercisetypeid"));
+                                        map.put("trainingid",idTraining);
+
+                                        tmpReq = RequestBuilder.buildRequest(Operation.INSERT,new String[]{"repeats","load","exercisetypeid","trainingid"},map);
+                                        tmpTmp.receiveRequest(tmpReq);
+                                        tmpTmp.disconnect();
+                                    }
+                                    tmpExerciseGate.disconnect();
+                                    panel.updateList();
                                 } catch (Exception ex) {
                                     throw new RuntimeException(ex);
                                 }
+
+
+
+
                             });
                         } catch (Exception ex) {
                             throw new RuntimeException(ex);
@@ -77,9 +112,11 @@ public class SessionBuild extends JFrame{
         });
     }
 
-    public static void start() {
+    public static void start(RefreshablePanel panel) {
         JFrame frame = new JFrame("SessionBuild");
-        frame.setContentPane(new SessionBuild().Panel);
+        SessionBuild tb = new SessionBuild();
+        frame.setContentPane(tb.Panel);
+        tb.panel = panel;
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
@@ -87,7 +124,6 @@ public class SessionBuild extends JFrame{
 
     private void updateList() throws Exception {
         HashMap<String,String> map = new HashMap<>();
-//        map.put("sessionid","10");
         map.put("bodypartid","15");
         map.put("name","0");
         map.put("sql","SELECT bodypartid,name,trainings.id FROM trainings JOIN bodyparts ON trainings.bodypartid = bodyparts.id WHERE trainings.sessionid=-1");//

@@ -1,8 +1,6 @@
 package pwr.student.FitnessTracker;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.FocusAdapter;
-import java.awt.event.FocusEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Arrays;
@@ -13,7 +11,7 @@ public class MainForm extends JFrame{
     private JPanel JPanelBottom;
     private JPanel JPanelMain;
     private JLabel JLabelTitle;
-    private JTabbedPane JPanel;
+    private JTabbedPane TabbedPanel;
     private JPanel TrainingsPanel;
     private JPanel SessionsPanel;
     private JPanel ExercisesPanel;
@@ -25,16 +23,15 @@ public class MainForm extends JFrame{
 
     public MainForm() {
 
-        JPanel.addMouseListener(new MouseAdapter() {
+        TabbedPanel.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                for (Component component : JPanel.getComponents()) {
-                    try {
-                        //((RefreshablePanel) component).updateList();
-                    } catch (Exception ex) {
-                        throw new RuntimeException(ex);
-                    }
+                RefreshablePanel fu = (RefreshablePanel)((JPanel)((JTabbedPane)e.getSource()).getSelectedComponent()).getComponent(0);
+                try {
+                    fu.updateList();
+                } catch (Exception ex) {
+                    throw new RuntimeException(ex);
                 }
             }
         });

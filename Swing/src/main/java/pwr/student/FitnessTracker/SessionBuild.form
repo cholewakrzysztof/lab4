@@ -102,7 +102,9 @@
                 <preferred-size width="150" height="-1"/>
               </grid>
             </constraints>
-            <properties/>
+            <properties>
+              <text value="2023-01-01 1:1:1"/>
+            </properties>
           </component>
           <component id="39b57" class="javax.swing.JLabel">
             <constraints>
@@ -119,7 +121,7 @@
               </grid>
             </constraints>
             <properties>
-              <text value=""/>
+              <text value="1:1:1"/>
             </properties>
           </component>
         </children>

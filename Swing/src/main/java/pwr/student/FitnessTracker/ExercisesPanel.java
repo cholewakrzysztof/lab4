@@ -38,7 +38,7 @@ public class ExercisesPanel extends RefreshablePanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String repeats = RepeatTextField.getText();
-                String load = RepeatTextField.getText();
+                String load = LoadTextField.getText();
                 String exID = ExercisetypeIdTextField.getText();
                 String trainingID = TrainingIdTextField.getText();
                 Matcher matcher = pattern.matcher(repeats);
@@ -72,7 +72,7 @@ public class ExercisesPanel extends RefreshablePanel{
                 try {
                     Pattern pattern = Pattern.compile("[0-9]+", Pattern.CASE_INSENSITIVE);
                     String repeats = RepeatTextField.getText();
-                    String load = RepeatTextField.getText();
+                    String load = LoadTextField.getText();
                     String exID = ExercisetypeIdTextField.getText();
                     String trainingID = TrainingIdTextField.getText();
                     Matcher matcher = pattern.matcher(repeats);
@@ -97,6 +97,20 @@ public class ExercisesPanel extends RefreshablePanel{
     }
 
     private void createUIComponents() throws Exception {
+        Panel = new RefreshablePanel() {
+            @Override
+            public void updateList() throws Exception {
+                HashMap<String,String> map = new HashMap<>();
+                map.put("exercisetypeid","2");
+                map.put("id","0");
+                map.put("trainingid","1");
+                map.put("repeats","10");
+                map.put("load","15");
+                gate.receiveRequest(RequestBuilder.buildRequest(Operation.SELECT,new String[]{"*"},map));
+                ExercisesList.setModel(JListBuilder.buildDFModel(map.keySet(),gate.getRespond()));
+            }
+        };
+
         ScrollPane = new JScrollPane();
         gate = new BackGate("exercises");
         ExercisesList = new JList();
