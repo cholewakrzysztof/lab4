@@ -20,8 +20,6 @@ public class ProgressPanel extends JFrame{
         tb.targetLoad = Integer.parseInt(tLoad);
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.pack();
-        frame.setVisible(true);
-
         drawGraph(targetId,tb.targetLoad,repeats);
     }
 

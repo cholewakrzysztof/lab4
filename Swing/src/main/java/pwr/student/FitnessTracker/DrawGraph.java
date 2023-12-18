@@ -100,7 +100,18 @@ public class DrawGraph extends JPanel {
 
         JFrame frame = new JFrame("DrawGraph");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.getContentPane().add(mainPanel);
+
+        JPanel panel = new JPanel();
+        String txt;
+
+        if(repeats)
+            txt = "% of target repeats";
+        else
+            txt = "% of target load";
+
+        panel.add(new JLabel(txt));
+        panel.add(mainPanel);
+        frame.getContentPane().add(panel);
         frame.pack();
         frame.setLocationByPlatform(true);
         frame.setVisible(true);

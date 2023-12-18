@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ExerciseTypesPanel extends RefreshablePanel{
+public class ExerciseTypesPanel extends JPanel{
     BackGate gate;
     private JButton ButtonAdd;
     private JButton ButtonDelete;
@@ -35,7 +35,7 @@ public class ExerciseTypesPanel extends RefreshablePanel{
                     }
                 }
                 try {
-                    updateList();
+                    ((RefreshablePanel)Panel).updateList();
                     System.out.println("Update list!");
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
@@ -47,7 +47,7 @@ public class ExerciseTypesPanel extends RefreshablePanel{
             public void actionPerformed(ActionEvent e) {
                 try {
                     Proxy.manageDelete(gate,ExerciseTypes.getSelectedValue().toString());
-                    updateList();
+                    ((RefreshablePanel)Panel).updateList();
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
@@ -65,7 +65,7 @@ public class ExerciseTypesPanel extends RefreshablePanel{
                         map.put("table","exercisestypes");
                         Proxy.manageUpdate(gate,ExerciseTypes.getSelectedValue().toString(),map);
                     }
-                    updateList();
+                    ((RefreshablePanel)Panel).updateList();
                 } catch (Exception ex) {
                     throw new RuntimeException(ex);
                 }
@@ -87,15 +87,8 @@ public class ExerciseTypesPanel extends RefreshablePanel{
 
         gate = new BackGate("exercisestypes");
         ExerciseTypes = new JList();
-        updateList();
+        ((RefreshablePanel)Panel).updateList();
         ScrollPane = new JScrollPane();
         this.ScrollPane.add(ExerciseTypes);
-    }
-    public void updateList() throws Exception {
-        HashMap<String,String> map = new HashMap<>();
-        map.put("id","0");
-        map.put("name","0");
-        gate.receiveRequest(RequestBuilder.buildRequest(Operation.SELECT,new String[]{"*"},map));
-        ExerciseTypes.setModel(JListBuilder.buildDFModel(map.keySet(),gate.getRespond()));
     }
 }

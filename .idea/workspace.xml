@@ -4,32 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="35c56949-d99b-468e-94ec-7c976abb942e" name="Changes" comment="Building sessions and trainings work">
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/DrawGraph.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ProgressPanel.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ProgressPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TargetBuild.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TargetBuild.java" afterDir="false" />
+    <list default="true" id="35c56949-d99b-468e-94ec-7c976abb942e" name="Changes" comment="Work">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/SQLExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/SQLExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/BodyPartTypesPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/BodyPartTypesPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/BodyPartTypesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/BodyPartTypesPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExerciseTypesPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExerciseTypesPanel.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/DrawGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/DrawGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExerciseTypesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExerciseTypesPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExercisesPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExercisesPanel.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExercisesPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExercisesPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MainForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MyDateField.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/MyDateField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionBuild.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionBuild.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionBuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionBuild.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionsPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionsPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TargetsPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TargetsPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TargetsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TargetsPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingBuild.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingBuild.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.form" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TrainingsPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ProgressPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ProgressPanel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +146,7 @@
       <workItem from="1702641839235" duration="4476000" />
       <workItem from="1702646360472" duration="604000" />
       <workItem from="1702841327630" duration="18005000" />
-      <workItem from="1702859387378" duration="16637000" />
+      <workItem from="1702859387378" duration="17851000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -248,7 +228,15 @@
       <option name="project" value="LOCAL" />
       <updated>1702646140008</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Work">
+      <option name="closed" value="true" />
+      <created>1702876238100</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1702876238100</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -276,7 +264,8 @@
     <MESSAGE value="Crud done" />
     <MESSAGE value="Oh my god done a lot, look at hour" />
     <MESSAGE value="Building sessions and trainings work" />
-    <option name="LAST_COMMIT_MESSAGE" value="Building sessions and trainings work" />
+    <MESSAGE value="Work" />
+    <option name="LAST_COMMIT_MESSAGE" value="Work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -322,49 +311,9 @@
           <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExercisesPanel.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="108" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExercisesPanel.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="109" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/ExercisesPanel.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="110" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionBuild.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="111" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionBuild.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="112" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionBuild.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="113" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionBuild.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="116" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionBuild.java</url>
           <line>56</line>
           <option name="timeStamp" value="117" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/SessionBuild.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="118" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TargetsPanel.java</url>
@@ -375,11 +324,6 @@
           <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TargetsPanel.java</url>
           <line>143</line>
           <option name="timeStamp" value="122" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Swing/src/main/java/pwr/student/FitnessTracker/TargetsPanel.java</url>
-          <line>121</line>
-          <option name="timeStamp" value="135" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/BackEnd/src/main/java/pwr/student/FitnessTracker/BackGate.java</url>
